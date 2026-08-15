@@ -1,1 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tan Ezen — Software Engineer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%232457C5%22/><text x=%2250%22 y=%2262%22 font-family=%22Space Grotesk, sans-serif%22 font-weight=%22700%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22>TE</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #171717;
+    --bg: #F7F7F5;
+    --primary: #2457C5;
+    --accent: #DCE7FF;
+    --border: rgba(23,23,23,0.1);
+  }
 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(247,247,245,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo .mark {
+    background: var(--primary);
+    color: white;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  nav {
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.15s ease, color 0.15s ease;
+  }
+
+  nav a:hover { opacity: 1; color: var(--primary); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    padding: 100px 0 90px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--accent);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  .hero p.claim {
+    font-size: clamp(16px, 2vw, 19px);
+    opacity: 0.75;
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .btn.primary {
+    background: var(--primary);
+    color: white;
+  }
+
+  .btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn.primary:hover { opacity: 0.9; }
+  .btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ---------- Section shared ---------- */
+
+  section { padding: 80px 0; border-top: 1px solid var(--border); }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3.5vw, 32px);
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Work ---------- */
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr 2.4fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .project:first-of-type { border-top: none; padding-top: 0; }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+  }
+
+  .project-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary);
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .project-body p {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 14px;
+  }
+
+  .project-body ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .project-body li {
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 100px;
+    opacity: 0.7;
+  }
+
+  .placeholder-note {
+    font-size: 13px;
+    font-style: italic;
+    opacity: 0.5;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 640px) {
+    .project { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- About ---------- */
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .about-block h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary);
+  }
+
+  .about-block p, .about-block li {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+
+  .about-block { margin-bottom: 32px; }
+
+  @media (max-width: 640px) {
+    .about-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .contact-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .contact-links a:hover { border-color: var(--primary); color: var(--primary); }
+
+  footer {
+    padding: 32px 0;
+    font-size: 13px;
+    opacity: 0.5;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="mark">TE</span>
+      TAN EZEN
+    </a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" class="hero" style="border-top:none;">
+  <div class="wrap">
+    <span class="eyebrow">Software Engineer</span>
+    <h1>Tan Ezen</h1>
+    <p class="claim">
+      I build reliable, high-performance software for technically challenging problems.
+    </p>
+    <div class="hero-links">
+      <a href="#work" class="btn primary">See selected work</a>
+      <a href="#contact" class="btn secondary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-label">Selected Work</div>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div>
+        <div class="project-title">Order Matching Engine</div>
+        <span class="project-tag">Systems</span>
+      </div>
+      <div class="project-body">
+        <p>Details for this project haven't been added yet.</p>
+        <p class="placeholder-note">Add: problem, architecture, benchmarks, stack, repo link.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <div class="project-title">Distributed Systems</div>
+        <span class="project-tag">Go · gRPC · AWS</span>
+      </div>
+      <div class="project-body">
+        <p>Architected a distributed, fault-tolerant system in Go with multi-threaded request handling and replication. Built a client-server layer with gRPC on AWS, handling remote calls, load balancing, and graceful shutdowns. Led the team as technical lead.</p>
+        <p><strong>Result:</strong> &gt;50% reduction in runtime through optimized parallelization and resource management, benchmarked on multicore hardware for latency, scalability, and optimal thread usage.</p>
+        <ul>
+          <li>Go</li>
+          <li>gRPC</li>
+          <li>AWS</li>
+          <li>Concurrency</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <div class="project-title">RecycleNXT</div>
+        <span class="project-tag">Django · AWS · ML</span>
+      </div>
+      <div class="project-body">
+        <p>Built an AI-driven waste collection optimization system for RecycleNXT (India &amp; UAE), using the Prophet API for time-series forecasting. Designed backend services with Django and PostgreSQL, deployed on AWS with CI/CD pipelines, serving roughly 100 users a day. Delivered with a 6-person team using Agile and TDD practices.</p>
+        <p><strong>Result:</strong> 2nd place among 40 projects, judged on scalability and innovation.</p>
+        <ul>
+          <li>Django</li>
+          <li>PostgreSQL</li>
+          <li>AWS</li>
+          <li>Prophet API</li>
+          <li>CI/CD</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <div class="project-title">Groove Galaxy</div>
+        <span class="project-tag">Unity · Computer Vision</span>
+      </div>
+      <div class="project-body">
+        <p>Real-time, Just Dance–style rhythm game built in Unity (C#) with a 6-person team. Built a computer vision pipeline for live pose classification across 5 gesture classes, achieving 95% accuracy with low-latency inference. Integrated a hardware dance mat as a secondary input. Led core gameplay loop development — scoring, combo systems, frame-rate independent input — and ran extensive user testing.</p>
+        <p><strong>Result:</strong> Shipped a fully original game with zero third-party assets, built cross-discipline with art, audio, and hardware teams.</p>
+        <ul>
+          <li>Unity</li>
+          <li>C#</li>
+          <li>Computer Vision</li>
+          <li>Hardware I/O</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <div class="project-title">FlyRank</div>
+        <span class="project-tag">TBD</span>
+      </div>
+      <div class="project-body">
+        <p>Details for this project haven't been added yet.</p>
+        <p class="placeholder-note">Add: problem, architecture, benchmarks, stack, repo link.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">About</div>
+    <h2>Who I am</h2>
+
+    <div class="about-grid">
+      <div>
+        <div class="about-block">
+          <h3>Who I am</h3>
+          <p>Software engineer focused on building reliable, high-performance systems for technically demanding problems — from distributed backends to real-time, low-latency pipelines.</p>
+        </div>
+        <div class="about-block">
+          <h3>How I work</h3>
+          <p>Add a short paragraph on your working style — e.g. how you approach problems, collaborate in teams, or balance speed vs. rigor.</p>
+        </div>
+      </div>
+      <div>
+        <div class="about-block">
+          <h3>Technical interests</h3>
+          <p>Distributed systems, performance engineering, applied machine learning.</p>
+        </div>
+        <div class="about-block">
+          <h3>Education</h3>
+          <p>University of Bristol — Software Engineering coursework, 2024–2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-label">Contact</div>
+    <h2>Get in touch</h2>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">your.email@example.com</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Tan Ezen
+</footer>
+
+</body>
+</html>
