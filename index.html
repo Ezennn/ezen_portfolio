@@ -3,314 +3,378 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Tan Ezen — Computer Science graduate focused on software engineering for ML/CV and high-performance computing." />
 <title>Tan Ezen — Software Engineer</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%232457C5%22/><text x=%2250%22 y=%2262%22 font-family=%22Space Grotesk, sans-serif%22 font-weight=%22700%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22>TE</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230b0f19%22/><text x=%2250%22 y=%2264%22 font-family=%22Arial%22 font-weight=%22700%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22>TE</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --text: #171717;
-    --bg: #F7F7F5;
-    --primary: #2457C5;
-    --accent: #DCE7FF;
-    --border: rgba(23,23,23,0.1);
-  }
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --text: #10141b;
+  --muted: #66707d;
+  --faint: #8c95a1;
+  --line: #dfe3e8;
+  --ink: #0b0f19;
+  --accent: #2457c5;
+  --accent-soft: #e8efff;
+  --max: 1080px;
+  --radius: 18px;
+  --shadow: 0 18px 50px rgba(16, 20, 27, .07);
+}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; }
+::selection { background: var(--ink); color: #fff; }
 
-  html { scroll-behavior: smooth; }
+.wrap {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.5;
-  }
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245,246,248,.82);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(223,227,232,.85);
+}
+header .wrap {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+}
+nav { display: flex; gap: 26px; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+nav a:hover { color: var(--text); }
 
-  a { color: inherit; }
+/* Hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 118px 0 112px;
+  border-bottom: 1px solid var(--line);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  right: -250px;
+  top: -270px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(36,87,197,.12), transparent 67%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 80px;
+  align-items: end;
+}
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+h1 {
+  max-width: 780px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 7.2vw, 82px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  margin-bottom: 28px;
+}
+.hero-copy {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 20px);
+}
+.hero-aside {
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+.hero-aside strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 17px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--ink); color: #fff; }
+.btn.primary:hover { background: var(--accent); }
+.btn.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.55); }
+.btn.secondary:hover { border-color: #aeb6c1; }
 
-  .wrap {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+/* Sections */
+section { padding: 100px 0; border-bottom: 1px solid var(--line); }
+.section-head {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 30px;
+  margin-bottom: 54px;
+}
+.section-label {
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
 
-  /* ---------- Header ---------- */
+/* Work */
+.project-list {
+  border-top: 1px solid var(--line);
+}
+.project {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 60px;
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+}
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-number {
+  color: var(--faint);
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+.project-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.project-tag {
+  margin-top: 10px;
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.project-body p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 13px;
+}
+.project-body strong { color: var(--text); }
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+.tech span {
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  color: #58616d;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+}
+.placeholder {
+  padding: 20px;
+  border: 1px dashed #cbd1d8;
+  border-radius: 12px;
+  background: rgba(255,255,255,.45);
+  color: var(--faint);
+  font-size: 13px;
+}
 
-  header {
-    position: sticky;
-    top: 0;
-    background: rgba(247,247,245,0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    z-index: 10;
-  }
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 80px;
+}
+.about-block + .about-block { margin-top: 42px; }
+.about-block h3 {
+  margin-bottom: 10px;
+  font-family: "DM Mono", monospace;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.about-block p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 560px;
+}
 
-  header .wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Contact */
+.contact {
+  background: var(--ink);
+  color: #fff;
+  border-bottom: 0;
+}
+.contact .section-label { color: #91b0ff; }
+.contact h2 { max-width: 650px; }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+  align-items: end;
+}
+.contact-copy {
+  color: #aeb7c5;
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 9px;
+}
+.contact-links a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+}
+.contact-links a:hover { color: #91b0ff; }
+
+footer {
+  padding: 25px 0;
+  background: var(--ink);
+  color: #697383;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .wrap { width: min(var(--max), calc(100% - 28px)); }
+  nav { gap: 15px; }
+  nav a { font-size: 12px; }
+  .hero { padding: 82px 0 76px; }
+  .hero-grid, .contact-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-aside {
+    padding-left: 0;
     padding-top: 18px;
-    padding-bottom: 18px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
-
-  .logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
-  .logo .mark {
-    background: var(--primary);
-    color: white;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-size: 13px;
-  }
-
-  nav {
-    display: flex;
-    gap: 28px;
-  }
-
-  nav a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    opacity: 0.7;
-    transition: opacity 0.15s ease, color 0.15s ease;
-  }
-
-  nav a:hover { opacity: 1; color: var(--primary); }
-
-  /* ---------- Hero ---------- */
-
-  .hero {
-    padding: 100px 0 90px;
-  }
-
-  .eyebrow {
-    display: inline-block;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--primary);
-    background: var(--accent);
-    padding: 6px 12px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-    letter-spacing: 0.02em;
-  }
-
-  h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(34px, 6vw, 58px);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    margin-bottom: 20px;
-  }
-
-  .hero p.claim {
-    font-size: clamp(16px, 2vw, 19px);
-    opacity: 0.75;
-    max-width: 560px;
-    margin-bottom: 36px;
-  }
-
-  .hero-links {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 12px 22px;
-    border-radius: 6px;
-    display: inline-block;
-  }
-
-  .btn.primary {
-    background: var(--primary);
-    color: white;
-  }
-
-  .btn.secondary {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn.primary:hover { opacity: 0.9; }
-  .btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
-
-  /* ---------- Section shared ---------- */
-
-  section { padding: 80px 0; border-top: 1px solid var(--border); }
-
-  .section-label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 12px;
-  }
-
-  h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(24px, 3.5vw, 32px);
-    margin-bottom: 40px;
-    letter-spacing: -0.01em;
-  }
-
-  /* ---------- Work ---------- */
-
-  .project {
-    display: grid;
-    grid-template-columns: 1fr 2.4fr;
-    gap: 24px;
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .project:first-of-type { border-top: none; padding-top: 0; }
-
-  .project-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 19px;
-  }
-
-  .project-tag {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--primary);
-    background: var(--accent);
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-
-  .project-body p {
-    font-size: 15px;
-    opacity: 0.8;
-    margin-bottom: 14px;
-  }
-
-  .project-body ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .project-body li {
-    font-size: 12px;
-    font-weight: 500;
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    border-radius: 100px;
-    opacity: 0.7;
-  }
-
-  .placeholder-note {
-    font-size: 13px;
-    font-style: italic;
-    opacity: 0.5;
-    margin-top: 8px;
-  }
-
-  @media (max-width: 640px) {
-    .project { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- About ---------- */
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .about-block h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--primary);
-  }
-
-  .about-block p, .about-block li {
-    font-size: 15px;
-    opacity: 0.8;
-    margin-bottom: 8px;
-  }
-
-  .about-block { margin-bottom: 32px; }
-
-  @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- Contact ---------- */
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 8px;
-  }
-
-  .contact-links a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-    width: fit-content;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 2px;
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-
-  .contact-links a:hover { border-color: var(--primary); color: var(--primary); }
-
-  footer {
-    padding: 32px 0;
-    font-size: 13px;
-    opacity: 0.5;
-    text-align: center;
-    border-top: 1px solid var(--border);
-  }
+  section { padding: 72px 0; }
+  .section-head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 38px; }
+  .project { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 20px; }
+  .contact-links { align-items: flex-start; }
+}
+@media (max-width: 440px) {
+  header .wrap { height: 64px; }
+  .logo { font-size: 13px; }
+  .mark { width: 30px; height: 30px; border-radius: 8px; }
+  nav a:nth-child(2) { display: none; }
+  h1 { font-size: 48px; }
+}
 </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="wrap">
     <a href="#top" class="logo">
       <span class="mark">TE</span>
-      TAN EZEN
+      <span>TAN EZEN</span>
     </a>
-    <nav>
+    <nav aria-label="Primary navigation">
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -318,106 +382,108 @@
   </div>
 </header>
 
-<section id="top" class="hero" style="border-top:none;">
-  <div class="wrap">
-    <span class="eyebrow">Software Engineer</span>
-    <h1>Tan Ezen</h1>
-    <p class="claim">
-      I build reliable, high-performance software for technically challenging problems.
-    </p>
-    <div class="hero-links">
-      <a href="#work" class="btn primary">See selected work</a>
-      <a href="#contact" class="btn secondary">Get in touch</a>
+<main>
+<section id="top" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Software Engineer · CS Graduate</div>
+      <h1>Engineering software for hard problems.</h1>
+      <p class="hero-copy">
+        I build reliable, high-performance systems across distributed computing,
+        machine learning and real-time computer vision.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#work">Explore selected work ↓</a>
+        <a class="btn secondary" href="#contact">Get in touch</a>
+      </div>
     </div>
+    <aside class="hero-aside">
+      <strong>Currently interested in</strong>
+      ML / Computer Vision<br>
+      High-Performance Computing<br>
+      Distributed Systems
+    </aside>
   </div>
 </section>
 
 <section id="work">
   <div class="wrap">
-    <div class="section-label">Selected Work</div>
-    <h2>Projects</h2>
-
-    <div class="project">
-      <div>
-        <div class="project-title">Order Matching Engine</div>
-        <span class="project-tag">Systems</span>
-      </div>
-      <div class="project-body">
-        <p>Details for this project haven't been added yet.</p>
-        <p class="placeholder-note">Add: problem, architecture, benchmarks, stack, repo link.</p>
-      </div>
+    <div class="section-head">
+      <div class="section-label">01 / Selected work</div>
+      <h2>Projects where systems meet performance.</h2>
     </div>
 
-    <div class="project">
-      <div>
-        <div class="project-title">Distributed Systems</div>
-        <span class="project-tag">Go · gRPC · AWS</span>
-      </div>
-      <div class="project-body">
-        <p>Architected a distributed, fault-tolerant system in Go with multi-threaded request handling and replication. Built a client-server layer with gRPC on AWS, handling remote calls, load balancing, and graceful shutdowns. Led the team as technical lead.</p>
-        <p><strong>Result:</strong> &gt;50% reduction in runtime through optimized parallelization and resource management, benchmarked on multicore hardware for latency, scalability, and optimal thread usage.</p>
-        <ul>
-          <li>Go</li>
-          <li>gRPC</li>
-          <li>AWS</li>
-          <li>Concurrency</li>
-        </ul>
-      </div>
-    </div>
+    <div class="project-list">
+      <article class="project">
+        <div class="project-meta">
+          <span class="project-number">01</span>
+          <div class="project-title">Order Matching Engine</div>
+          <span class="project-tag">Systems</span>
+        </div>
+        <div class="project-body">
+          <div class="placeholder">Project details coming soon — add the problem, architecture, benchmarks, stack and repository link.</div>
+        </div>
+      </article>
 
-    <div class="project">
-      <div>
-        <div class="project-title">RecycleNXT</div>
-        <span class="project-tag">Django · AWS · ML</span>
-      </div>
-      <div class="project-body">
-        <p>Built an AI-driven waste collection optimization system for RecycleNXT (India &amp; UAE), using the Prophet API for time-series forecasting. Designed backend services with Django and PostgreSQL, deployed on AWS with CI/CD pipelines, serving roughly 100 users a day. Delivered with a 6-person team using Agile and TDD practices.</p>
-        <p><strong>Result:</strong> 2nd place among 40 projects, judged on scalability and innovation.</p>
-        <ul>
-          <li>Django</li>
-          <li>PostgreSQL</li>
-          <li>AWS</li>
-          <li>Prophet API</li>
-          <li>CI/CD</li>
-        </ul>
-      </div>
-    </div>
+      <article class="project">
+        <div class="project-meta">
+          <span class="project-number">02</span>
+          <div class="project-title">Distributed Systems</div>
+          <span class="project-tag">Go · gRPC · AWS</span>
+        </div>
+        <div class="project-body">
+          <p>Architected a distributed, fault-tolerant system in Go with multi-threaded request handling and replication. Built a client-server layer with gRPC on AWS, handling remote calls, load balancing and graceful shutdowns. Led the team as technical lead.</p>
+          <p><strong>Result:</strong> &gt;50% reduction in runtime through optimized parallelization and resource management, benchmarked on multicore hardware for latency, scalability and optimal thread usage.</p>
+          <div class="tech"><span>Go</span><span>gRPC</span><span>AWS</span><span>Concurrency</span></div>
+        </div>
+      </article>
 
-    <div class="project">
-      <div>
-        <div class="project-title">Groove Galaxy</div>
-        <span class="project-tag">Unity · Computer Vision</span>
-      </div>
-      <div class="project-body">
-        <p>Real-time, Just Dance–style rhythm game built in Unity (C#) with a 6-person team. Built a computer vision pipeline for live pose classification across 5 gesture classes, achieving 95% accuracy with low-latency inference. Integrated a hardware dance mat as a secondary input. Led core gameplay loop development — scoring, combo systems, frame-rate independent input — and ran extensive user testing.</p>
-        <p><strong>Result:</strong> Shipped a fully original game with zero third-party assets, built cross-discipline with art, audio, and hardware teams.</p>
-        <ul>
-          <li>Unity</li>
-          <li>C#</li>
-          <li>Computer Vision</li>
-          <li>Hardware I/O</li>
-        </ul>
-      </div>
-    </div>
+      <article class="project">
+        <div class="project-meta">
+          <span class="project-number">03</span>
+          <div class="project-title">RecycleNXT</div>
+          <span class="project-tag">Django · AWS · ML</span>
+        </div>
+        <div class="project-body">
+          <p>Built an AI-driven waste collection optimization system for RecycleNXT (India &amp; UAE), using the Prophet API for time-series forecasting. Designed backend services with Django and PostgreSQL, deployed on AWS with CI/CD pipelines, serving roughly 100 users a day. Delivered with a 6-person team using Agile and TDD practices.</p>
+          <p><strong>Result:</strong> 2nd place among 40 projects, judged on scalability and innovation.</p>
+          <div class="tech"><span>Django</span><span>PostgreSQL</span><span>AWS</span><span>Prophet API</span><span>CI/CD</span></div>
+        </div>
+      </article>
 
-    <div class="project">
-      <div>
-        <div class="project-title">FlyRank</div>
-        <span class="project-tag">TBD</span>
-      </div>
-      <div class="project-body">
-        <p>Details for this project haven't been added yet.</p>
-        <p class="placeholder-note">Add: problem, architecture, benchmarks, stack, repo link.</p>
-      </div>
-    </div>
+      <article class="project">
+        <div class="project-meta">
+          <span class="project-number">04</span>
+          <div class="project-title">Groove Galaxy</div>
+          <span class="project-tag">Unity · Computer Vision</span>
+        </div>
+        <div class="project-body">
+          <p>Real-time, Just Dance–style rhythm game built in Unity (C#) with a 6-person team. Built a computer vision pipeline for live pose classification across 5 gesture classes, achieving 95% accuracy with low-latency inference. Integrated a hardware dance mat as a secondary input. Led core gameplay loop development — scoring, combo systems, frame-rate independent input — and ran extensive user testing.</p>
+          <p><strong>Result:</strong> Shipped a fully original game with zero third-party assets, built cross-discipline with art, audio and hardware teams.</p>
+          <div class="tech"><span>Unity</span><span>C#</span><span>Computer Vision</span><span>Hardware I/O</span></div>
+        </div>
+      </article>
 
+      <article class="project">
+        <div class="project-meta">
+          <span class="project-number">05</span>
+          <div class="project-title">FlyRank</div>
+          <span class="project-tag">TBD</span>
+        </div>
+        <div class="project-body">
+          <div class="placeholder">Project details coming soon — add the problem, architecture, benchmarks, stack and repository link.</div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <section id="about">
   <div class="wrap">
-    <div class="section-label">About</div>
-    <h2>Who I am</h2>
+    <div class="section-head">
+      <div class="section-label">02 / About</div>
+      <h2>Curious about what happens underneath the abstraction.</h2>
+    </div>
 
     <div class="about-grid">
       <div>
@@ -433,7 +499,7 @@
       <div>
         <div class="about-block">
           <h3>Technical interests</h3>
-          <p>Distributed systems, performance engineering, applied machine learning.</p>
+          <p>Distributed systems, performance engineering, applied machine learning, computer vision and high-performance computing.</p>
         </div>
         <div class="about-block">
           <h3>Education</h3>
@@ -444,21 +510,24 @@
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap">
-    <div class="section-label">Contact</div>
-    <h2>Get in touch</h2>
+<section id="contact" class="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <div class="section-label">03 / Contact</div>
+      <h2>Let's build something technically interesting.</h2>
+      <p class="contact-copy">Interested in software engineering roles around ML/CV, performance engineering, HPC or distributed systems.</p>
+    </div>
     <div class="contact-links">
-      <a href="mailto:tanezens@gmail.com">tanezens@gmail.com</a>
+      <a href="mailto:tanezens@gmail.com">tanezens@gmail.com ↗</a>
       <a href="https://github.com/ezennn" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="https://www.linkedin.com/in/ezen-tan-7369392b3/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
-  &copy; 2026 Tan Ezen
+  <div class="wrap">&copy; 2026 Tan Ezen · Built with HTML &amp; CSS</div>
 </footer>
-
 </body>
 </html>
